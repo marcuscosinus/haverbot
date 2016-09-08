@@ -1,1 +1,1 @@
-bot: node haver.js
+bot: PORT=$PORT npm run test
