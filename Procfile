@@ -1,1 +1,1 @@
-web: node haver.js
+worker: node haver.js
