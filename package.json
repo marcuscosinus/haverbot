@@ -19,7 +19,4 @@
   },
   "author": "marcuscosinus",
   "license": "ISC"
-},
-  "engines": {
-    "node": "6.4.0"
-  }
+}
