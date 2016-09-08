@@ -1,1 +1,1 @@
-web:  node haver.js -p $PORT
+bot:  node haver.js -p $PORT
