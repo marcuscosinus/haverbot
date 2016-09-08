@@ -17,11 +17,8 @@
     "test": "nodemon haver.js",
     "start": "node haver.js"
   },
-  "production": {
-      "server": {
-          "host": "0.0.0.0",
-          "port": "process.env.PORT"
-      }
+  "config" : {
+    "port" : "5000"
   },
   "author": "marcuscosinus",
   "license": "ISC"
