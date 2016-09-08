@@ -15,7 +15,13 @@
   "devDependencies": {},
   "scripts": {
     "test": "nodemon haver.js",
-    "start": "node haver.js $PORT"
+    "start": "node haver.js"
+  },
+  "production": {
+      "server": {
+          "host": "0.0.0.0",
+          "port": "process.env.PORT"
+      }
   },
   "author": "marcuscosinus",
   "license": "ISC"
