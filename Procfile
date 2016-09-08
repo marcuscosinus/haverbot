@@ -1,1 +1,1 @@
-bot: PORT=$PORT npm run test
+bot: npm run test process.env.PORT=$PORT
