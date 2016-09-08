@@ -15,7 +15,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "nodemon haver.js",
-    "start": "node haver.js"
+    "start": "node haver.js $PORT"
   },
   "author": "marcuscosinus",
   "license": "ISC"
