@@ -1,1 +1,1 @@
-worker: node haver.js
+worker: node haver.js $PORT
