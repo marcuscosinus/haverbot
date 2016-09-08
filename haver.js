@@ -12,11 +12,12 @@ const gameList = require("./gamelist.json");
 *** TODO ***
 - edit lfg messages to mention everyone
 - gw channels monogram id
-- mass moving to channels
+- mass moving to channels [ OK ]
 - 2 parameters for !mmr
 - on streaming notify everyone
 - loader method for roles, members, admins
 - method for google sheet
+- register at the bot for guild wars events (needs constant uptime)
 */
 
 
