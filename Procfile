@@ -1,1 +1,1 @@
-bot: npm run test process.env.PORT=$PORT
+bot: PORT=$PORT node haver.js
