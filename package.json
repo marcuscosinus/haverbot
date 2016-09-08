@@ -12,6 +12,10 @@
     "nodemon": "^1.10.2",
     "util": "^0.10.3"
   },
+  "scripts": {
+    "test": "nodemon haver.js",
+    "start": "node haver.js"
+  },
   "author": "marcuscosinus",
   "license": "ISC"
 }
