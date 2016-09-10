@@ -1,1 +1,1 @@
-bot:  node test.js -p $PORT
+bot:  node haver.js -p $PORT

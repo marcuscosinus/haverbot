@@ -13,8 +13,8 @@
     "util": "^0.10.3"
   },
   "scripts": {
-    "test": "nodemon test.js",
-    "start": "node test.js"
+    "test": "nodemon haver.js",
+    "start": "node haver.js"
   },
   "author": "marcuscosinus",
   "license": "ISC"
