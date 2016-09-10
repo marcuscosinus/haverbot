@@ -367,7 +367,7 @@ bot.on("message", function(message) {
                       repl.push({name: r.dinamikusdenevérek, room: 'dinamikusdenevérek'});
                     }
                     if (r.veszélyesvadmalacok != '') {
-                      repl.push({name: r.veszélyesvadmalacok, room: 'veszélyesvadmalacok'});
+                      repl.push({name: r.veszélyesvadmacskák, room: 'veszélyesvadmacskák'});
                     }
                     if (r.egocentrikuselefántok != '') {
                       repl.push({name: r.egocentrikuselefántok, room: 'egocentrikuselefántok'});
@@ -377,6 +377,7 @@ bot.on("message", function(message) {
 
 
                   for (let r of repl) {
+                    bot.addMemberToRole(havers[r.name.toLowerCase()], roles[r.room]);
                     bot.moveMember(havers[r.name.toLowerCase()],channels[r.room], (error) => {
                       if (error) util.log(chalk.red('Error at mass moving: ' + r.name + '. ---> ' + error));
                       else util.log(chalk.blue('Successfully moved ' + r.name));
@@ -552,7 +553,7 @@ bot.on("message", function(message) {
                 gwDoc.getInfo(function(err, info) {
                     console.log('Loaded doc: ' + info.title + ' by ' + info.author.email);
                     sheet = info.worksheets[2];
-                    util.log(sheet.title + ' selected!');
+                    util.log(sheet.title + ' worksheet selected!');
                     step();
                 });
             },
@@ -560,7 +561,7 @@ bot.on("message", function(message) {
             function workingWithCells(step) {
                 sheet.getCells({
                     'min-row': 2,
-                    'max-row': 100,
+                    'max-row': 200,
                     'min-col': 1,
                     'max-col': 1,
                     'return-empty': true
