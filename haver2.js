@@ -18,6 +18,8 @@ const gwDoc = new GoogleSpreadsheet('16n1yqLrYCmEtYn8CoIfRdf-JRZTvnmSpfwpwHz4-k1
 
 var sheet;
 
+const prefix = '!';
+
 
 // let roleID = message.guild.roles.find("name", "Mods").id;
 // let membersWithRole = message.guild.members.filter(m=> m.roles.has(roleID))
@@ -35,14 +37,14 @@ client.on('error', (error) => {
 client.on('ready', () => {
   //let guild = client.guilds.get("178591941535989761");
   // let guild = client.channel.guild;
-  
+
   // let ch = client.channels;
   // let chiter = ch.values();
 //   for (let r of chiter){
 //     if (undefined !== r.name) {
 // console.log(r.name);
 //     }
-    
+
 //   }
   //console.log(guild);
   console.log('I am ready!');
@@ -51,8 +53,10 @@ client.on('ready', () => {
 
 
 client.on('message', msg => {
+  //if(msg.author !== client.user) return;
+  if(!msg.content.startsWith(prefix)) return;
   // if the message is "ping",
-  if (msg.content === '!role') {
+  if (msg.content.startsWith(prefix+'role')) {
    // let members = msg.guild.members.size;
    //msg.author.addRole()
   //  message.guildmember.addRole()
@@ -61,14 +65,22 @@ client.on('message', msg => {
     //console.log(members);
   }
 
+  if (msg.content.startsWith(prefix+'admins')) {
+    console.log('admin');
+   //let admins = client.users.filter( a => a.members.size>100);
+   let admin = msg.guild.roles.find('name','Admin');
+   let admins = msg.guild.members.filter( m => m.roles.exists('name','Admin'));
+   console.log(admins.size);
+  }
+
   if (msg.content === '!roles') {
-    let roles = msg.guild.roles;
-    let guest = roles.find('name',"vendég");
-    let author = msg.author;
-    let member = msg.guild.member(msg.author);
-    let users = client.users;
-    let channels = client.channels;
-    let msgA = msg;
+    // let roles = msg.guild.roles;
+    // let guest = roles.find('name',"vendég");
+    // let author = msg.author;
+    // let member = msg.guild.member(msg.author);
+    // let users = client.users;
+    // let channels = client.channels;
+    // let msgA = msg;
 
     //console.log(member.user.username);
 
@@ -85,7 +97,7 @@ client.on('message', msg => {
 
   }
 
-  if (msg.content === '!go') {
+  if (msg.content.startsWith(prefix+'go')) {
     msg.delete();
      async.series([
           function setAuth(step) {
@@ -150,30 +162,23 @@ client.on('message', msg => {
                     let ch = client.channels.find('name',r.room);
                     let usr = client.users.find('username',r.name);
                     let role = msg.guild.roles.find('name',r.room);
-                    
+
 
                     msg.guild.member(usr).addRole(role)
                     .then(
                       msg.guild.member(usr).setVoiceChannel(ch)
-                    .then( 
-                      util.log( chalk.blue( usr.username + ' moved to ' + ch.name) ) 
+                    .then(
+                      util.log( chalk.blue( usr.username + ' moved to ' + ch.name) )
                       )
-                    .catch( 
+                    .catch(
                       error => util.log(chalk.red(error))
                       )
                     );
-                    
-                    
                   }
-                 
                   step();
               });
           }
-
       ]);
-
-
-
   }
 });
 
