@@ -19,6 +19,6 @@
   "author": "marcuscosinus",
   "license": "ISC",
   "engines": {
-    "node": ">=6.0.0"
+    "node": "6.0.0"
   }
 }
