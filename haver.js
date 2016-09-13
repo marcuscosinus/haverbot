@@ -6,7 +6,6 @@ var fs = require('fs');
 var util = require("util");
 const chalk = require('chalk');
 const gameList = require("./gamelist.json");
-var port = process.env.PORT || 5000;
 
 
 /*
