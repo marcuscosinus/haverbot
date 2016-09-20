@@ -89,20 +89,14 @@ client.on('message', msg => {
       let members = msg.guild.members;
 
 
-
       MongoClient.connect(mongoUrl, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
-    //HURRAY!! We are connected. :)
     console.log('Connection established to', mongoUrl);
 
-    // Get the documents collection
-    var collection = db.collection('members');
 
-    
-
-    // Insert some users
+    var collection = db.collection('members');    
 
     members.forEach( (v,k) => {
     collection.insert( {_id: v.user.id, name: v.user.username}, function (err, result) {

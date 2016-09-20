@@ -16,7 +16,7 @@
   "scripts": {
     "test": "nodemon haver.js",
     "start": "node haver2.js",
-    "v2": "pm2 start haver2.js --watch"
+    "v2": "pm2 start haver2.js"
   },
   "author": "marcuscosinus",
   "license": "ISC",
