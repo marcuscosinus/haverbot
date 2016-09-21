@@ -104,7 +104,7 @@ client.on('message', msg => {
     var collection = db.collection('members');    
 
     members.forEach( (v,k) => {
-    collection.insert( {_id: v.user.id, name: v.user.username}, function (err, result) {
+    collection.update( { '_id' : { $exists : true} } , { _id: v.user.id, name: v.user.username }, function (err, result) {
       if (err) {
         console.log(err);
       } else {
