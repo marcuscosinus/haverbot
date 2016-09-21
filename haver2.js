@@ -83,6 +83,11 @@ client.on('message', msg => {
 
   }
 
+  if (msg.content.startsWith(prefix+'ping')) {
+    msg.delete();
+    msg.reply('pong');
+  }
+
   if (msg.content.startsWith( prefix + 'export')) {
       msg.delete();
 
